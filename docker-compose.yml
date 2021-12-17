@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  telegram:
+    restart: unless-stopped
+    container_name: 'telegram'
+    build:
+      context: .
+      dockerfile: Bot/Dockerfile
+    depends_on:
+      - 'postgres'
+    networks:
+      - base-network
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: nginx
+  #   restart: unless-stopped
+  #   tty: true
+  #   volumes:
+  #     - ./:/var/www
+  #     - ./nginx/conf.d/:/etc/nginx/conf.d/
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   networks:
+  #     - gtavlivemap-network
+  #   links:
+  #     - 'gtavlivemap.core'
+  postgres:
+    ports:
+      - '5432:5432'
+    container_name: postgresql
+    environment:
+      - POSTGRES_PASSWORD=1111
+    volumes:
+      - 'gtavlivemap-postgresql-volume:/var/lib/postgresql/data'
+    image: 'postgres:10.4'
+    networks:
+      - base-network
+
+volumes:
+  gtavlivemap-postgresql-volume:
+
+networks:
+  base-network:
+    driver: bridge

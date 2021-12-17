@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentMigrator" Version="3.3.1" />
+    <PackageReference Include="IronPython.Infrastructure.Abstractions" Version="1.0.0" />
+    <PackageReference Include="IronPython.Infrastructure.DbContext.Extensions" Version="1.0.0" />
+    <PackageReference Include="IronPython.Infrastructure.Npgsql" Version="1.0.0" />
+    <PackageReference Include="IronPython.Infrastructure.Repository" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Telegram.Bot" Version="17.0.0" />
+    <PackageReference Include="Telegram.Bot.Extensions.Polling" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bot.Entities\Bot.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
